@@ -1,15 +1,15 @@
 package com.evandro.helpdesk.domain.enums;
 
-public enum Prioridade {
+public enum Priority {
 	
-	BAIXA(0, "BAIXA"), 
-	MEDIA(1, "MEDIA"), 
-	ALTA(2, "ALTA");
+	LOW(0, "LOW"), 
+	MEDIUM(1, "MEDIUM"), 
+	HIGH(2, "HIGH");
 	
 	private Integer codigo;
 	private String descricao;
 	
-	private Prioridade(Integer codigo, String descricao) {
+	private Priority(Integer codigo, String descricao) {
 		this.codigo = codigo;
 		this.descricao = descricao;
 	}
@@ -22,12 +22,12 @@ public enum Prioridade {
 		return descricao;
 	}
 	
-	public static Prioridade toEnum(Integer cod) {
+	public static Priority toEnum(Integer cod) {
 		if(cod == null) {
 			return null;
 		}
 		
-		for(Prioridade x : Prioridade.values()) {
+		for(Priority x : Priority.values()) {
 			
 			if(cod.equals(x.getCodigo())) {
 				return x;

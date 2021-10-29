@@ -1,15 +1,15 @@
 package com.evandro.helpdesk.domain.enums;
 
-public enum Status {
+public enum Profile {
 	
-	OPEN(0, "OPEN"), 
-	PROGRESS(1, "IN PROGRESS"), 
-	CLOSED(2, "CLOSED");
+	ADMIN(0, "ROLE_ADMIN"), 
+	CUSTOMER(1, "ROLE_CUSTOMER"), 
+	TECHNICIAN(2, "ROLE_TECHNICIAN");
 	
 	private Integer id;
 	private String description;
 	
-	private Status(Integer codigo, String descricao) {
+	private Profile(Integer codigo, String descricao) {
 		this.id = codigo;
 		this.description = descricao;
 	}
@@ -22,12 +22,12 @@ public enum Status {
 		return description;
 	}
 	
-	public static Status toEnum(Integer cod) {
+	public static Profile toEnum(Integer cod) {
 		if(cod == null) {
 			return null;
 		}
 		
-		for(Status x : Status.values()) {
+		for(Profile x : Profile.values()) {
 			
 			if(cod.equals(x.getCodigo())) {
 				return x;
@@ -35,7 +35,7 @@ public enum Status {
 			
 		}
 		
-		throw new IllegalArgumentException("Status inválido");
+		throw new IllegalArgumentException("Invalid profile");
 		
 	}
 	
