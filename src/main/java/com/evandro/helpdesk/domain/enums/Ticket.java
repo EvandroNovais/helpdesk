@@ -1,28 +1,57 @@
 package com.evandro.helpdesk.domain.enums;
 
+import java.io.Serializable;
 import java.time.LocalDate;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 import com.evandro.helpdesk.domain.Customer;
 import com.evandro.helpdesk.domain.Technician;
+import com.fasterxml.jackson.annotation.JsonFormat;
 
-public class Ticket {
+
+
+@Entity(name = "TB_TICKET")
+public class Ticket implements Serializable{	
+	private static final long serialVersionUID = 1L;
 	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
+	
+	@JsonFormat(pattern = "dd/MM/yyyy hh:mm:ss")
 	private LocalDate openingDate = LocalDate.now();
+	
+	@JsonFormat(pattern = "dd/MM/yyyy hh:mm:ss")
 	private LocalDate closingDate;
+	
+	
 	private Priority priority; 
+	
 	private Status status;
+	
 	private String title;
+	
 	private String comments;
 	
-	private Technician tecnico;
+	@ManyToOne
+	@JoinColumn(name = "technician_id")
+	private Technician technician;
+	
+	@ManyToOne
+	@JoinColumn(name = "customer_id")
 	private Customer customer;
 	
 	public Ticket() {
 		super();
 	}
 
-	public Ticket(Integer id, Priority priority, Status status, String title, String comments, Technician tecnico,
+	public Ticket(Integer id, Priority priority, Status status, String title, String comments, Technician technician,
 			Customer customer) {
 		super();
 		this.id = id;
@@ -30,7 +59,7 @@ public class Ticket {
 		this.status = status;
 		this.title = title;
 		this.comments = comments;
-		this.tecnico = tecnico;
+		this.technician = technician;
 		this.customer = customer;
 	}
 
@@ -91,11 +120,11 @@ public class Ticket {
 	}
 
 	public Technician getTecnico() {
-		return tecnico;
+		return technician;
 	}
 
 	public void setTecnico(Technician tecnico) {
-		this.tecnico = tecnico;
+		this.technician = tecnico;
 	}
 
 	public Customer getCustomer() {
