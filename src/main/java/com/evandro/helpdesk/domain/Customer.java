@@ -7,7 +7,6 @@ import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 
 import com.evandro.helpdesk.domain.enums.Profile;
-import com.evandro.helpdesk.domain.enums.Ticket;
 
 @Entity(name = "TB_CUSTOMER")
 public class Customer extends Person {	

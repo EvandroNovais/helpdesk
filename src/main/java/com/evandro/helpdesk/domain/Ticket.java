@@ -1,4 +1,4 @@
-package com.evandro.helpdesk.domain.enums;
+package com.evandro.helpdesk.domain;
 
 import java.io.Serializable;
 import java.time.LocalDate;
@@ -10,8 +10,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
-import com.evandro.helpdesk.domain.Customer;
-import com.evandro.helpdesk.domain.Technician;
+import com.evandro.helpdesk.domain.enums.Priority;
+import com.evandro.helpdesk.domain.enums.Status;
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 
