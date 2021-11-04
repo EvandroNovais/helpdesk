@@ -41,7 +41,7 @@ public abstract class Person implements Serializable {
 	@CollectionTable(name = "PROFILE")
 	protected Set<Integer> profile = new HashSet<>();
 	
-	@JsonFormat(pattern = "dd/MM/yyyy hh:mm:ss")
+	@JsonFormat(pattern = "dd/MM/yyyy")
 	protected LocalDate createdAt = LocalDate.now();
 	
 	public Person() {

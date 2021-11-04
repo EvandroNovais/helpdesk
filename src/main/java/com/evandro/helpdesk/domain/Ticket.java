@@ -24,10 +24,10 @@ public class Ticket implements Serializable{
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	
-	@JsonFormat(pattern = "dd/MM/yyyy hh:mm:ss")
+	@JsonFormat(pattern = "dd/MM/yyyy")
 	private LocalDate openingDate = LocalDate.now();
 	
-	@JsonFormat(pattern = "dd/MM/yyyy hh:mm:ss")
+	@JsonFormat(pattern = "dd/MM/yyyy")
 	private LocalDate closingDate;
 	
 	
