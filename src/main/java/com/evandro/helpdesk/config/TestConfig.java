@@ -20,5 +20,4 @@ public class TestConfig {
 		this.dbService.instantiateDB();
 
 	}
-
 }
