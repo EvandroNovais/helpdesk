@@ -9,12 +9,12 @@ public enum Profile {
 	private Integer id;
 	private String description;
 	
-	private Profile(Integer codigo, String descricao) {
-		this.id = codigo;
-		this.description = descricao;
+	private Profile(Integer id, String description) {
+		this.id = id;
+		this.description = description;
 	}
 
-	public Integer getCodigo() {
+	public Integer getId() {
 		return id;
 	}
 
@@ -29,7 +29,7 @@ public enum Profile {
 		
 		for(Profile x : Profile.values()) {
 			
-			if(cod.equals(x.getCodigo())) {
+			if(cod.equals(x.getId())) {
 				return x;
 			}
 			

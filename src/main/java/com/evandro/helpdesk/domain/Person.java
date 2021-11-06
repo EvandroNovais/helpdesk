@@ -104,7 +104,7 @@ public abstract class Person implements Serializable {
 	}
 
 	public void addProfile(Profile profile) {
-		this.profile.add(profile.getCodigo());
+		this.profile.add(profile.getId());
 		
 	}
 
