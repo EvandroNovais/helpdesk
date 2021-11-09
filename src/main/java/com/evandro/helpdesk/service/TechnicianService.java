@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.evandro.helpdesk.domain.Technician;
 import com.evandro.helpdesk.repositories.TechnicianRepository;
+import com.evandro.helpdesk.service.exceptions.ObjectNotFoundException;
 
 @Service
 public class TechnicianService{
@@ -17,7 +18,7 @@ public class TechnicianService{
 	public Technician findById(Integer id) {
 		
 		Optional<Technician> obj = technicianRepository.findById(id);
-		return obj.orElse(null);
+		return obj.orElseThrow(() -> new ObjectNotFoundException("Técnico com Id: " + id + " não Encontrado!"));
 		
 	}
 
